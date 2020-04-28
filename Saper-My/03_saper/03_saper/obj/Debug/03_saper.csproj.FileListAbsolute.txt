@@ -1,0 +1,10 @@
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\bin\Debug\03_saper.exe.config
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\bin\Debug\03_saper.exe
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\bin\Debug\03_saper.pdb
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\obj\Debug\03_saper.csprojAssemblyReference.cache
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\obj\Debug\_03_saper.FormMainWindow.resources
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\obj\Debug\_03_saper.Properties.Resources.resources
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\obj\Debug\03_saper.csproj.GenerateResource.cache
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\obj\Debug\03_saper.csproj.CoreCompileInputs.cache
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\obj\Debug\03_saper.exe
+D:\STUDY\C#-projects\Saper-My\03_saper\03_saper\obj\Debug\03_saper.pdb

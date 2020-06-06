@@ -17,9 +17,9 @@ namespace ClientServer
                 TcpListener serverSocket = new TcpListener(IPAddress.Any, 7000);
                 Console.WriteLine("Server started");
                 serverSocket.Start();
+                TcpClient clientSocket = serverSocket.AcceptTcpClient();
                 while(true)
                 {
-                    TcpClient clientSocket = serverSocket.AcceptTcpClient();
                     NetworkStream stream = clientSocket.GetStream();
 
                     //Слушаем клиента
@@ -28,13 +28,18 @@ namespace ClientServer
                     string request = Encoding.ASCII.GetString(bytes, 0, length);
                     Console.WriteLine("Got request: "+request);
 
+                    if(request == "close")
+                    {
+                        Console.WriteLine("user is disconnected !");
+                        clientSocket.Close();
+                    }
+
                     //Отправляем ответ клиенту
                     string message = "Length of you request: "+request.Length;
                     bytes = Encoding.ASCII.GetBytes(message);
                     stream.Write(bytes, 0, bytes.Length);
                     stream.Flush();
                     Console.WriteLine("Sent message: " + message);
-                    clientSocket.Close();
                 }
                 serverSocket.Stop();
                 Console.WriteLine("Srever stopped");
@@ -44,7 +49,7 @@ namespace ClientServer
             {
                 Console.WriteLine(e.Message);
             }
-            Console.ReadKey();
+            //Console.ReadKey();
 
         }
     }

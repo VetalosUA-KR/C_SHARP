@@ -18,19 +18,31 @@ namespace Client
 
                 
                 NetworkStream stream = client.GetStream();
+                string txt = "";
+                while(txt != "close")
+                {
+                    Console.WriteLine("enter some text \n");
+                    txt = Console.ReadLine();
+                    if(txt != "")
+                    {
+                        //Отправляем запрос к серверу
+                        //string request = "I have an question";
+                        byte[] bytesWrite = Encoding.ASCII.GetBytes(txt);
+                        stream.Write(bytesWrite, 0, bytesWrite.Length);
+                        stream.Flush();
+                        Console.WriteLine("Client send request " + bytesWrite.Length);
 
-                //Отправляем запрос к серверу
-                string request = "I have an question";
-                byte[] bytesWrite = Encoding.ASCII.GetBytes(request);
-                stream.Write(bytesWrite, 0, bytesWrite.Length);
-                stream.Flush();
-                Console.WriteLine("Client send request "+ bytesWrite.Length);
-
-                //Получаем ответ сервера
-                byte[] bytesRead = new byte[256];
-                int length = stream.Read(bytesRead, 0, bytesRead.Length);
-                string answer = Encoding.ASCII.GetString(bytesRead, 0, length);
-                Console.WriteLine(answer);
+                        //Получаем ответ сервера
+                        byte[] bytesRead = new byte[256];
+                        int length = stream.Read(bytesRead, 0, bytesRead.Length);
+                        string answer = Encoding.ASCII.GetString(bytesRead, 0, length);
+                        Console.WriteLine(answer);
+                    }
+                    else
+                    {
+                        Console.WriteLine("type some text");
+                    }
+                }
                 
 
 
@@ -41,7 +53,7 @@ namespace Client
             {
                 Console.WriteLine(e.Message);
             }
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
